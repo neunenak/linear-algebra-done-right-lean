@@ -55,13 +55,13 @@ theorem mul_comm_example (α β : ℂ) : α * β = β * α := by
   · ring_nf
 
 @[avoiding Complex.addGroupWithOne]
-theorem exercise_1A_2 (α β γ : ℂ) : (α + β) + γ = α + (β + γ) := by sorry
+theorem exercise_1A_2 (α β λ : ℂ) : (α + β) + λ = α + (β + λ) := by sorry
 
 @[avoiding Complex.commRing]
-theorem exercise_1A_3 (α β γ : ℂ) : (α * β) * γ = α * (β * γ) := by sorry
+theorem exercise_1A_3 (α β λ : ℂ) : (α * β) * λ = α * (β * λ) := by sorry
 
 @[avoiding Complex.commRing]
-theorem exercise_1A_4 (α β γ : ℂ) : γ * (α + β) = γ * α + γ * β := by sorry
+theorem exercise_1A_4 (α β λ : ℂ) : λ * (α + β) = λ * α + λ * β := by sorry
 
 example (γ : ℂ) : γ + 0 = γ := add_zero γ
 example (γ : ℂ) : γ * 1 = γ := mul_one γ
