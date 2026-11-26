@@ -46,7 +46,13 @@ example : (2 + 3 * I) * (4 + 5 * I) = -7 + 22 * I := by
 /-! 1.3 Properties of complex arithmetic -/
 
 @[avoiding Complex.commRing, Complex.instCommSemiring, Complex.instField]
-theorem exercise_1A_1 (α β : ℂ) : α + β = β + α := by sorry
+theorem exercise_1A_1 (α β : ℂ) : α + β = β + α := by
+  apply Complex.ext
+  · rw [Complex.add_re, Complex.add_re]
+    exact add_comm α.re β.re
+  · rw [Complex.add_im, Complex.add_im]
+    exact add_comm α.im β.im
+
 
 /-! 1.4 Example: commutativity of complex multiplication -/
 
@@ -57,10 +63,21 @@ theorem mul_comm_example (α β : ℂ) : α * β = β * α := by
   · simp only [Complex.mul_im]; ring
 
 @[avoiding Complex.commRing, Complex.instCommSemiring, Complex.instField]
-theorem exercise_1A_2 (α β γ : ℂ) : (α + β) + γ = α + (β + γ) := by sorry
+theorem exercise_1A_2 (α β γ : ℂ) : (α + β) + γ = α + (β + γ) := by
+  apply Complex.ext
+  · simp only [Complex.add_re]
+    exact add_assoc α.re β.re γ.re
+  · simp only [Complex.add_im]
+    exact add_assoc α.im β.im γ.im
+
 
 @[avoiding Complex.commRing, Complex.instCommSemiring, Complex.instField]
-theorem exercise_1A_3 (α β γ : ℂ) : (α * β) * γ = α * (β * γ) := by sorry
+theorem exercise_1A_3 (α β γ : ℂ) : (α * β) * γ = α * (β * γ) := by
+  apply Complex.ext
+  · simp [Complex.mul_re]
+    let abr := α.re * β.re
+    rw [abr]
+  
 
 @[avoiding Complex.commRing, Complex.instCommSemiring, Complex.instField]
 theorem exercise_1A_4 (α β γ : ℂ) : γ * (α + β) = γ * α + γ * β := by sorry
